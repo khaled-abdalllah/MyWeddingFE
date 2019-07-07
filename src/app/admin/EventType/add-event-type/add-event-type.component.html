@@ -1,0 +1,16 @@
+<h1>
+  Add Event Type
+</h1>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()"> 
+  <label>
+    <input type="text" formControlName="EventName" required>
+    <span *ngIf="(EventName.dirty||EventName.touched)&&EventName.invalid&&EventName.errors.required"> 
+        Please enter the Event name
+    </span>
+  </label>
+
+  <button type="submit" [disabled]="!profileForm.valid">Add Event Type</button>
+</form>
+
+

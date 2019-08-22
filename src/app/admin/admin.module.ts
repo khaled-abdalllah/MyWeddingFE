@@ -5,6 +5,9 @@ import {ReactiveFormsModule} from '@angular/Forms';
 import { routes } from './admin-routing.module';
 import { RouterModule } from '@angular/router';
 import { IndexComponent } from './EventType/index/index.component';
+import {MatButtonModule} from '@angular/material/button';
+import { MaterialModule } from '../shared/material/material.module';
+
 
 
 @NgModule({
@@ -12,8 +15,10 @@ import { IndexComponent } from './EventType/index/index.component';
   declarations: [AddEventTypeComponent,IndexComponent],
   imports: [
     CommonModule,
+    MatButtonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MaterialModule,
     
   ]
 })

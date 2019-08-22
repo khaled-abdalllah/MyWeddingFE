@@ -6,6 +6,7 @@ import { IndexComponent } from './EventType/index/index.component';
 export const  routes: Routes = [
   { path: 'addEventType', component: AddEventTypeComponent },
   { path: 'EventTypeIndex', component: IndexComponent },
+  { path: 'addEventType/:id',      component: AddEventTypeComponent },
 ];
 
 @NgModule({

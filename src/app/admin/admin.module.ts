@@ -7,18 +7,24 @@ import { RouterModule } from '@angular/router';
 import { IndexComponent } from './EventType/index/index.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MaterialModule } from '../shared/material/material.module';
+import { SaveItemComponent } from './items/save-item/save-item.component';
+import { IndexItemsComponent } from './items/index-items/index-items.component';
+import {AdminRoutingModule} from './admin-routing.module'
+
 
 
 
 @NgModule({
   
-  declarations: [AddEventTypeComponent,IndexComponent],
+  declarations: [AddEventTypeComponent,IndexComponent, SaveItemComponent, IndexItemsComponent],
   imports: [
+    AdminRoutingModule,
     CommonModule,
     MatButtonModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
     MaterialModule,
+    
     
   ]
 })

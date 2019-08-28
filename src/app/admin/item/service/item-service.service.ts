@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Items } from '../Models/items';
+import { Items } from '../../Models/items';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import {URL} from '../../shared/url'
+import {URL} from '../../../shared/url'
 
 
 const httpOptions = {
@@ -13,7 +13,9 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class ItemsService {
+
+
+export class ItemServiceService {
 
   constructor(private http: HttpClient) {
 
@@ -32,7 +34,6 @@ export class ItemsService {
   }
 
   delete(id: string): Observable<number> {  
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };  
     return this.http.delete<number>(URL.DeleteEventTypeURL  +id,  
  httpOptions);  
   }  

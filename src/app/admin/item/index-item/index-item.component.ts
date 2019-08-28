@@ -1,5 +1,5 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
-import {ItemsService} from '../items.service'
+import {ItemServiceService} from '../service/item-service.service'
 import { MatTableDataSource } from '@angular/material';
 import {Router} from "@angular/router"
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -8,17 +8,17 @@ import {MatSort} from '@angular/material/sort';
 import {Items} from '../../../admin/Models/items'
 
 @Component({
-  selector: 'app-index-items',
-  templateUrl: './index-items.component.html',
-  styleUrls: ['./index-items.component.css']
+  selector: 'app-index-item',
+  templateUrl: './index-item.component.html',
+  styleUrls: ['./index-item.component.css']
 })
-export class IndexItemsComponent implements OnInit {
+export class IndexItemComponent implements OnInit {
 
-  constructor(private ItemsService:ItemsService,private router: Router,private _snackBar: MatSnackBar) { }
+  constructor(private ItemsService:ItemServiceService,private router: Router,private _snackBar: MatSnackBar) { }
 
   Items:Items[];
   massage = null;
-  displayedColumns: string[] = ['id', 'ItemName','ItemPrice','Update','Delete'];
+  displayedColumns: string[] = ['Id', 'ItemName','ItemPrice','Update','Delete'];
 
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -40,7 +40,7 @@ export class IndexItemsComponent implements OnInit {
 
   public redirectToUpdate (id: string)  
   {
-    this.router.navigate(['/addEventType', id]);
+    this.router.navigate(['/itemSave', id]);
   }
 
 
@@ -69,5 +69,6 @@ export class IndexItemsComponent implements OnInit {
         duration: 10000,
       });
     }
+
 
 }

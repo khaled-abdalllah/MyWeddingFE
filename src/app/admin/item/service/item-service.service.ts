@@ -34,7 +34,7 @@ export class ItemServiceService {
   }
 
   delete(id: string): Observable<number> {  
-    return this.http.delete<number>(URL.DeleteEventTypeURL  +id,  
+    return this.http.delete<number>(URL.DeleteItemsURL  +id,  
  httpOptions);  
   }  
 }

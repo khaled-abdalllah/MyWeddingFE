@@ -12,7 +12,8 @@ export const  routes: Routes = [
   { path: 'EventTypeIndex', component: IndexComponent },
   { path: 'addEventType/:id',      component: AddEventTypeComponent },
   {path: 'itemIndex',component:IndexItemComponent},
-  {path: 'itemSave' ,component:SaveItemsComponent}
+  {path: 'itemSave' ,component:SaveItemsComponent},
+  { path: 'itemSave/:id',component: SaveItemsComponent }
 ];
 
 @NgModule({

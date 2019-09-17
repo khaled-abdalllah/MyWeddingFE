@@ -1,16 +1,44 @@
-<h1>
-  Add Event Type
-</h1>
+<div class="container">  
+    <mat-card>
+        <mat-toolbar color="accent">  
+            <div align="center" style="color:white;text-align: right;">  
+              Add Event Type  
+            </div>    
+          </mat-toolbar>
+          <br><br>
+          <mat-card-content>
+              <form class="example-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
 
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()"> 
-  <label>
-    <input type="text" formControlName="EventName" required>
-    <span *ngIf="(EventName.dirty||EventName.touched)&&EventName.invalid&&EventName.errors.required"> 
-        Please enter the Event name
-    </span>
-  </label>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-md-4">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Event Name" [formControl]="EventName"
+                                       [errorStateMatcher]="matcher">
+                                <mat-error *ngIf="EventName.hasError('required')">
+                                <strong>Please enter the Event name</strong>
+                                </mat-error>
+                              </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                           <div class="col-md-2">
+                              <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Add Event Type</button>
+              
+                           </div>
+                
+                           <div class="col-md-2">
+                              <a  mat-raised-button color="warn" routerLink="/EventTypeIndex">Cancel</a>
+                            </div>
+                
+                      </div>
+                    </div>
+              </form>
+          </mat-card-content>
+    </mat-card>
+</div>
 
-  <button type="submit" [disabled]="!profileForm.valid">Add Event Type</button>
-</form>
 
 
+  
+  

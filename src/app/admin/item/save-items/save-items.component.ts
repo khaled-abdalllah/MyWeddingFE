@@ -8,9 +8,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MyErrorStateMatcher} from '../../../shared/MyErrorStateMatcher';
 
 
-
-
-
 @Component({
   selector: 'app-save-items',
   templateUrl: './save-items.component.html',
@@ -42,7 +39,7 @@ export class SaveItemsComponent implements OnInit {
     this.profileForm = new FormGroup({
       ItemName: new FormControl('',Validators.required),
       ItemPrice:new FormControl('',Validators.required),
-      id: new FormControl('0'),
+      Id: new FormControl('0'),
      
     });
 
@@ -53,6 +50,7 @@ export class SaveItemsComponent implements OnInit {
         this.profileForm.setValue(data)});
       this.profileForm.controls['ItemName'].setValue(this.Item.ItemName);
       this.profileForm.controls['ItemPrice'].setValue(this.Item.ItemPrice);
+      this.profileForm.controls['Id'].setValue(this.Item.Id);
     }
     
     

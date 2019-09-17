@@ -1,0 +1,99 @@
+<div class="container">
+  <mat-card>
+    <mat-toolbar color="accent">
+      <div align="center" style="color:white;text-align: right;">
+        Add Offer
+      </div>
+    </mat-toolbar>
+    <br><br>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Offer  Name" [formControl]="OfferName" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="OfferName.hasError('required')">
+                  <strong>Please enter the offer name</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker1" placeholder="Valid From" [formControl]="ValidFrom">
+                    <mat-datepicker-toggle matSuffix [for]="picker1">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="ValidFrom.hasError('required')">
+                        <strong>Please Select the offer valid From</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </div>
+            <div class="col-md-4">
+
+                
+
+                <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker" placeholder="Valid TO" [formControl]="ValidTo">
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="ValidTo.hasError('required')">
+                        <strong>Please enter the offer valid to</strong>
+                    </mat-error>
+                  </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Price" [formControl]="Price" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="Price.hasError('required')">
+                  <strong>Please enter the offer Price</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+
+                <mat-form-field>
+                    <mat-label>Event Type</mat-label>
+                    <mat-select [formControl]="EventType_ID">
+                      <mat-option *ngFor="let eventType  of eventTypes" [value]="eventType.id">
+                        {{eventType.EventName}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="EventType_ID.hasError('required')">
+                        <strong>Please enter the event Type</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+              <!-- <mat-form-field class="example-full-width">
+                <input type="number" matInput placeholder="Event Type" [formControl]="EventType_ID"
+                  [errorStateMatcher]="matcher">
+                <mat-error *ngIf="EventType_ID.hasError('required')">
+                  <strong>Please enter the event Type</strong>
+                </mat-error>
+              </mat-form-field> -->
+            </div>
+          </div>
+           <br />
+          <div class="row">
+            <div class="col-md-2">
+              <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid">Save</button>
+
+            </div>
+
+            <div class="col-md-2">
+              <a mat-raised-button color="warn" routerLink="/itemIndex">Cancel</a>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

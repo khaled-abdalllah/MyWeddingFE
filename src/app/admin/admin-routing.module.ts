@@ -5,6 +5,8 @@ import { IndexComponent } from './EventType/index/index.component';
 import {SaveItemsComponent} from './item/save-items/save-items.component'
 import {IndexItemComponent} from './item/index-item/index-item.component'
 import { componentFactoryName } from '@angular/compiler';
+import {IndexOfferComponent} from './Offer/index-offer/index-offer.component'
+import {SaveOfferComponent} from './Offer/save-offer/save-offer.component'
 
 
 export const  routes: Routes = [
@@ -13,7 +15,9 @@ export const  routes: Routes = [
   { path: 'addEventType/:id',      component: AddEventTypeComponent },
   {path: 'itemIndex',component:IndexItemComponent},
   {path: 'itemSave' ,component:SaveItemsComponent},
-  { path: 'itemSave/:id',component: SaveItemsComponent }
+  { path: 'itemSave/:id',component: SaveItemsComponent },
+  {path:'offerIndex',component: IndexOfferComponent},
+  {path:'SaveOffer',component:SaveOfferComponent}
 ];
 
 @NgModule({

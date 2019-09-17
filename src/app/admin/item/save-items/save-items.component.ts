@@ -8,9 +8,6 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MyErrorStateMatcher} from '../../../shared/MyErrorStateMatcher';
 
 
-
-
-
 @Component({
   selector: 'app-save-items',
   templateUrl: './save-items.component.html',

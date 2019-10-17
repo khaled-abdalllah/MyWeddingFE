@@ -7,4 +7,6 @@ export class Offer {
       Price:number;
       EventType_ID:number;
       OfferDetail:OfferDetails[];
+      SelectedItem:number;
+      //ChosenItem:number=0;
 }

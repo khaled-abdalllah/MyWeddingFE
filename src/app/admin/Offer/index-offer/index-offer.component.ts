@@ -43,4 +43,32 @@ export class IndexOfferComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+
+  public redirectToUpdate (id: string)  
+  {
+    this.router.navigate(['/SaveOffer', id]);
+  }
+
+  redirectToDelete(id: string) 
+  {  
+    if (confirm("Are you sure you want to delete this ?")) 
+    {   
+          this.OfferService.delete(id).subscribe(() => 
+          {  
+             this.massage = 'Record Deleted Succefully';  
+             this.getAllOffers();
+             this.openSnackBar();
+        }); 
+    } 
+  } 
+
+  openSnackBar() 
+    {
+      this._snackBar.open(this.massage, 'Success', 
+      {
+        duration: 10000,
+      });
+    }
+
+
 }

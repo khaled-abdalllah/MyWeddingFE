@@ -27,5 +27,14 @@ export class OfferServiceService {
   post(OffferModel: Offer): Observable<Offer> {
     return this.http.post<Offer>(URL.SaveOffer, OffferModel, httpOptions);
   }
+
+  getByID(id :string):Observable<Offer>{
+    return this.http.get<Offer>(URL.getOfferById+id);
+  }
+
+  delete (id:string){
+    return this.http.delete<number>(URL.DeleteOffer  +id,  
+      httpOptions);
+  }
   
 }

@@ -17,5 +17,8 @@ export class URL {
 
     public static GetAllOffers ='http://localhost:34294/api/Offer/GetAllOffers/';
     public static SaveOffer ='http://localhost:34294/api/Offer/SaveOffer/'
+    public static getOfferById='http://localhost:34294/api/Offer/GetOfferById/?id=';
+    public static DeleteOffer='http://localhost:34294/api/Offer/DeleteOffer/?id='
+
 
 }

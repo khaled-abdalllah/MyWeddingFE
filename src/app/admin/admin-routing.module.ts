@@ -17,7 +17,8 @@ export const  routes: Routes = [
   {path: 'itemSave' ,component:SaveItemsComponent},
   { path: 'itemSave/:id',component: SaveItemsComponent },
   {path:'offerIndex',component: IndexOfferComponent},
-  {path:'SaveOffer',component:SaveOfferComponent}
+  {path:'SaveOffer',component:SaveOfferComponent},
+  {path:'SaveOffer/:id',component:SaveOfferComponent},
 ];
 
 @NgModule({

@@ -48,9 +48,9 @@ export class SaveItemsComponent implements OnInit {
       this.ItemSerivce.getById(id)
       .subscribe( data => {
         this.profileForm.setValue(data)});
-      this.profileForm.controls['ItemName'].setValue(this.Item.ItemName);
-      this.profileForm.controls['ItemPrice'].setValue(this.Item.ItemPrice);
-      this.profileForm.controls['Id'].setValue(this.Item.Id);
+      // this.profileForm.controls['ItemName'].setValue(this.Item.ItemName);
+      // this.profileForm.controls['ItemPrice'].setValue(this.Item.ItemPrice);
+      // this.profileForm.controls['Id'].setValue(this.Item.Id);
     }
     
     

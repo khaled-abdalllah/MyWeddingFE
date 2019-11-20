@@ -11,14 +11,16 @@ import {AdminRoutingModule} from './admin-routing.module';
 import { SaveItemsComponent } from './item/save-items/save-items.component';
 import { IndexItemComponent } from './item/index-item/index-item.component';
 import { IndexOfferComponent } from './Offer/index-offer/index-offer.component';
-import { SaveOfferComponent } from './Offer/save-offer/save-offer.component'
+import { SaveOfferComponent } from './Offer/save-offer/save-offer.component';
+import { AddClosedDayComponent } from './ClosedDays/add-closed-day/add-closed-day.component';
+import { IndexClosedDayComponent } from './ClosedDays/index-closed-day/index-closed-day.component'
 
 
 
 
 @NgModule({
   
-  declarations: [AddEventTypeComponent,IndexComponent, SaveItemsComponent, IndexItemComponent, IndexOfferComponent, SaveOfferComponent],
+  declarations: [AddEventTypeComponent,IndexComponent, SaveItemsComponent, IndexItemComponent, IndexOfferComponent, SaveOfferComponent, AddClosedDayComponent, IndexClosedDayComponent],
   imports: [
     AdminRoutingModule,
     CommonModule,

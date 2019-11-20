@@ -21,4 +21,10 @@ export class URL {
     public static DeleteOffer='http://localhost:34294/api/Offer/DeleteOffer/?id='
 
 
+    //Closed Days
+    public static GetAllClosedDay ='http://localhost:34294/api/ClosedDay/GetAllClosedDays/';
+    public static SaveClosedDay ='http://localhost:34294/api/ClosedDay/AddClosedDay/'
+    public static getClosedDayById='http://localhost:34294/api/ClosedDay/GetClosedDayById/?id=';
+    public static DeleteClosedDay='http://localhost:34294/api/ClosedDay/DeleteClosedDay/?id='
+
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
-import {Items} from '../../Models/items'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {ItemServiceService} from '../service/item-service.service';
+import {ClosedDayService} from '../closed-day.service';
 import { ActivatedRoute } from "@angular/router";
 import {Router} from "@angular/router"
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -9,26 +8,26 @@ import {MyErrorStateMatcher} from '../../../shared/MyErrorStateMatcher';
 
 
 @Component({
-  selector: 'app-save-items',
-  templateUrl: './save-items.component.html',
-  styleUrls: ['./save-items.component.css']
+  selector: 'app-add-closed-day',
+  templateUrl: './add-closed-day.component.html',
+  styleUrls: ['./add-closed-day.component.css']
 })
-export class SaveItemsComponent implements OnInit {
-
-  Item:Items;
+export class AddClosedDayComponent implements OnInit {
   profileForm:FormGroup;
 
-  constructor(private ItemSerivce:ItemServiceService,private router: ActivatedRoute,private route: Router,
-    private _snackBar: MatSnackBar) {
+  get Day(){    
+    return this.profileForm.get('Day');
+   }
+   get Reason(){
+    return this.profileForm.get('Reason');
    }
 
-   get ItemName(){    
-    return this.profileForm.get('ItemName');
+   get Event_ID(){
+    return this.profileForm.get('Event_ID');
    }
-   get ItemPrice(){
-    return this.profileForm.get('ItemPrice');
-   }
-  matcher = new MyErrorStateMatcher();
+
+  constructor(private closedDayService:ClosedDayService,private router: ActivatedRoute,private route: Router,
+    private _snackBar: MatSnackBar ) { }
 
   ngOnInit() {
     this.initForm();
@@ -45,7 +44,7 @@ export class SaveItemsComponent implements OnInit {
 
     let id = this.router.snapshot.paramMap.get('id');
     if(id){
-      this.ItemSerivce.getById(id)
+      this.closedDayService.getByID(id)
       .subscribe( data => {
         this.profileForm.setValue(data)});
     }
@@ -55,10 +54,11 @@ export class SaveItemsComponent implements OnInit {
 
   onSubmit() 
   {
-    this.ItemSerivce.post(this.profileForm.value).subscribe(x=>console.warn("Done"));
+    this.closedDayService.post(this.profileForm.value).subscribe(x=>console.warn("Done"));
     this._snackBar.open('Date Saved Successfully', 'success', {
       duration: 10000,
     });
     this.route.navigate(['/itemIndex']);
   }
+
 }
